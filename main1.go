@@ -76,7 +76,7 @@ func evaluateArithmeticExpression(expr string) int {
 		return 0
 	}
 }
-
+// агент
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
 	mutex.Lock()
