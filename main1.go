@@ -1009,7 +1009,7 @@ func main() {
 	http.HandleFunc("/agents", Agents)
 	http.HandleFunc("/", serveStaticFile("index.html"))
 	log.Println("Starting HTTP server on localhost:8082")
-	go log.Fatal(http.ListenAndServe(":8082", nil))
-
-	select {}
+	log.Fatal(http.ListenAndServe(":8082", nil))
+	//go log.Fatal(http.ListenAndServe(":8082", nil))
+	//select {}
 }
