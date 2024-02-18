@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Хранилище данных</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding:  15px  32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size:  16px;
+            margin:  4px  2px;
+            cursor: pointer;
+        }
+        table {
+            width:  100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding:  15px;
+            text-align: left;
+            border-bottom:  1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {background-color: #f5f5f5;}
+    </style>
+</head>
+<body>
+    <button onclick="window.location.href='/'">Main page</button>
+    <button onclick="window.location.href='/agents'">Agents</button>
+    <button onclick="window.location.href='/operations'">Operations</button>
+    <h1>Список операций</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Выражение</th>
+                <th>Ответ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range $key, $value := .}}
+            <tr>
+                <td>{{$key}}</td>
+                <td>{{$value}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</body>
+</html>

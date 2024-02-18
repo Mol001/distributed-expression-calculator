@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Арифметический калькулятор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding:  15px  32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size:  16px;
+            margin:  4px  2px;
+            cursor: pointer;
+        }
+        #message {
+            padding:  10px;
+            background-color: #ffcc00;
+            color: #000;
+            border-radius:  5px;
+        }
+        form {
+            margin-top:  20px;
+        }
+        label {
+            display: block;
+            margin-bottom:  5px;
+        }
+        input[type="text"] {
+            width:  100%;
+            padding:  12px  20px;
+            margin:  8px  0;
+            box-sizing: border-box;
+            border:  1px solid #ccc;
+            border-radius:  4px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding:  14px  20px;
+            margin:  8px  0;
+            border: none;
+            border-radius:  4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // Получаем сохраненное значение expr из localStorage
+            const savedExpr = localStorage.getItem('savedExpr');
+
+            // Проверяем, существует ли сохраненное значение
+            if (savedExpr) {
+                // Находим поле ввода и присваиваем ему сохраненное значение
+                const exprInput = document.getElementById('expr');
+                exprInput.value = savedExpr;
+            }
+            // const messageBox = document.createElement('div');
+            // messageBox.id = 'message';
+            // messageBox.innerHTML = 'Ваше сообщение здесь.';
+            // document.body.appendChild(messageBox);
+        };
+    </script>
+</head>
+<body>
+    <button onclick="window.location.href='/storage'">Storage</button>
+    <button onclick="window.location.href='/agents'">Agents</button>
+    <button onclick="window.location.href='/operations'">Operations</button>
+    <h1>Главная страница</h1>
+    <form action="/calculate" method="GET">
+        <label for="expr">Введите выражение:</label>
+        <input type="text" id="expr" name="expr" required>
+        <button type="submit">Рассчитать</button>
+    </form>
+</body>
+</html>

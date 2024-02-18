@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Operation Time Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding:   15px   32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size:   16px;
+            margin:   4px   2px;
+            cursor: pointer;
+        }
+        h1 {
+            margin-top:   20px;
+            margin-bottom:   20px;
+        }
+        form {
+            margin-top:   20px;
+        }
+        label {
+            display: block;
+            margin-bottom:   5px;
+        }
+        input[type="number"] {
+            width:   100%;
+            padding:   12px   20px;
+            margin:   8px   0;
+            box-sizing: border-box;
+            border:   1px solid #ccc;
+            border-radius:   4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding:   14px   20px;
+            margin:   8px   0;
+            border: none;
+            border-radius:   4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.location.href='/'">Main page</button>
+    <button onclick="window.location.href='/storage'">Storage</button>
+    <button onclick="window.location.href='/agents'">Agents</button>
+    <h1>Configure Operation Time</h1>
+    <form method="post" action="/operations">
+        <label for="addition">Addition operation time (seconds):</label>
+        <input type="number" id="addition" name="addition" value="{{.AdditionSeconds}}">
+        <br>
+        <label for="subtraction">Subtraction operation time (seconds):</label>
+        <input type="number" id="subtraction" name="subtraction" value="{{.SubtractionSeconds}}">
+        <br>
+        <label for="multiplication">Multiplication operation time (seconds):</label>
+        <input type="number" id="multiplication" name="multiplication" value="{{.MultiplicationSeconds}}">
+        <br>
+        <label for="division">Division operation time (seconds):</label>
+        <input type="number" id="division" name="division" value="{{.DivisionSeconds}}">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
